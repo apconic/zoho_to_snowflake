@@ -1,0 +1,11 @@
+{
+  "_comment": "Tracks customer-side payments and credit flows.",
+  "submodule": "CustomerCredits",
+  "tables": [
+    "Customer Payments",
+    "Credit Notes",
+    "Credit Note Items",
+    "Credit Notes Refund",
+    "Creditnotes Invoice"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "_comment": "Tracks sales team structure and assignments.",
+  "submodule": "SalesPersonnel",
+  "tables": [
+    "RD Sales Person",
+    "Sales Persons"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "_comment": "Manages procurement and vendor relationships.",
+  "module": "Purchase",
+  "tables": [
+    "Vendors",
+    "Vendor Contact Persons",
+    "Purchase Orders",
+    "Purchase Order Items",
+    "Purchase Order Bill",
+    "Purchase Order Sales Order Mapping"
+  ]
+}

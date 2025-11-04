@@ -1,0 +1,10 @@
+{
+  "_comment": "Defines customer entities and relationships.",
+  "submodule": "CustomerData",
+  "tables": [
+    "Customers",
+    "Customer Addresses",
+    "Customer Contact Persons",
+    "Customer Visit"
+  ]
+}

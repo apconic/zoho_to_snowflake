@@ -1,0 +1,10 @@
+{
+  "_comment": "Defines core item structures and groupings.",
+  "submodule": "ItemStructure",
+  "tables": [
+    "Items",
+    "Item Group",
+    "Composite Item",
+    "Composite Item Details"
+  ]
+}

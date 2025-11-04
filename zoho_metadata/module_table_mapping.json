@@ -1,0 +1,106 @@
+{
+  "Finance": {
+    "CoreAccounting": [
+      "Accounts",
+      "Accrual Transactions",
+      "Manual Journals",
+      "Manual Journal Items"
+    ],
+    "CustomerCredits": [
+      "Customer Payments",
+      "Credit Notes",
+      "Credit Note Items",
+      "Credit Notes Refund",
+      "Creditnotes Invoice"
+    ],
+    "VendorCredits": [
+      "Vendor Payments",
+      "Vendor Payment Refund",
+      "Vendor Credits",
+      "Vendor Credit Items",
+      "Vendor Credit Refunds",
+      "Vendor Credits Bill"
+    ],
+    "PaymentLifecycle": [
+      "Payments Made",
+      "Payment Refunds"
+    ]
+  },
+  "Sales": {
+    "CustomerData": [
+      "Customers",
+      "Customer Addresses",
+      "Customer Contact Persons",
+      "Customer Visit"
+    ],
+    "SalesTransactions": [
+      "Sales Orders",
+      "Sales Order Items",
+      "Sales Order Invoice",
+      "Invoices",
+      "Invoice Items",
+      "Invoice Payments"
+    ],
+    "SalesPersonnel": [
+      "RD Sales Person",
+      "Sales Persons"
+    ]
+  },
+  "Inventory": [
+    "Inventory Adjustments",
+    "Inventory Adjustment Items",
+    "Inventory Mapping",
+    "FIFO Mapping Table",
+    "Stock In Flow Table",
+    "Stock Out Flow Table",
+    "Serial Numbers",
+    "Warehouses"
+  ],
+  "Purchase": [
+    "Vendors",
+    "Vendor Contact Persons",
+    "Purchase Orders",
+    "Purchase Order Items",
+    "Purchase Order Bill",
+    "Purchase Order Sales Order Mapping"
+  ],
+  "ProductCatalog": {
+    "ItemStructure": [
+      "Items",
+      "Item Group",
+      "Composite Item",
+      "Composite Item Details"
+    ],
+    "AttributesAndBranding": [
+      "Attribute",
+      "Attribute Options",
+      "Brand",
+      "Category",
+      "Manufacturer"
+    ],
+    "Pricing": [
+      "Price lists",
+      "Price List Item"
+    ]
+  },
+  "LogisticsAndDelivery": [
+    "Delivery Challan",
+    "Delivery Challan Item",
+    "Delivery Challans Invoice",
+    "Transfer Order",
+    "Transfer Order Items",
+    "Batch Number IN",
+    "Batch Number Out"
+  ],
+  "ExpenseAndCosting": [
+    "Expenses",
+    "Expense Item",
+    "Bill Item",
+    "Bills"
+  ],
+  "AdminAndMetadata": [
+    "Reporting Tags",
+    "Users",
+    "Branch"
+  ]
+}

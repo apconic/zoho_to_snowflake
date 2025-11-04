@@ -1,0 +1,13 @@
+{
+  "_comment": "Handles delivery and transfer operations.",
+  "module": "LogisticsAndDelivery",
+  "tables": [
+    "Delivery Challan",
+    "Delivery Challan Item",
+    "Delivery Challans Invoice",
+    "Transfer Order",
+    "Transfer Order Items",
+    "Batch Number IN",
+    "Batch Number Out"
+  ]
+}

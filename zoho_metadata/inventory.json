@@ -1,0 +1,14 @@
+{
+  "_comment": "Tracks stock movement, adjustments, and warehouse mappings.",
+  "module": "Inventory",
+  "tables": [
+    "Inventory Adjustments",
+    "Inventory Adjustment Items",
+    "Inventory Mapping",
+    "FIFO Mapping Table",
+    "Stock In Flow Table",
+    "Stock Out Flow Table",
+    "Serial Numbers",
+    "Warehouses"
+  ]
+}

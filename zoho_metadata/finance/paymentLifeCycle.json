@@ -1,0 +1,8 @@
+{
+  "_comment": "Captures general payment events and refunds.",
+  "submodule": "PaymentLifecycle",
+  "tables": [
+    "Payments Made",
+    "Payment Refunds"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "_comment": "Handles core accounting structures like accounts and journals.",
+  "submodule": "CoreAccounting",
+  "tables": [
+    "Accounts",
+    "Accrual Transactions",
+    "Manual Journals",
+    "Manual Journal Items"
+  ]
+}

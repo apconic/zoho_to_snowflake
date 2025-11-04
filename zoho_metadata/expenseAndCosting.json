@@ -1,0 +1,10 @@
+{
+  "_comment": "Tracks operational expenses and bill items.",
+  "module": "ExpenseAndCosting",
+  "tables": [
+    "Expenses",
+    "Expense Item",
+    "Bill Item",
+    "Bills"
+  ]
+}

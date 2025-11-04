@@ -1,0 +1,12 @@
+{
+  "_comment": "Manages vendor-side payments and credit operations.",
+  "submodule": "VendorCredits",
+  "tables": [
+    "Vendor Payments",
+    "Vendor Payment Refund",
+    "Vendor Credits",
+    "Vendor Credit Items",
+    "Vendor Credit Refunds",
+    "Vendor Credits Bill"
+  ]
+}

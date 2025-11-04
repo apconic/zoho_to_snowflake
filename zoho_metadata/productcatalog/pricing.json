@@ -1,0 +1,8 @@
+{
+  "_comment": "Manages price lists and pricing details.",
+  "submodule": "Pricing",
+  "tables": [
+    "Price lists",
+    "Price List Item"
+  ]
+}

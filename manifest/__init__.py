@@ -1,0 +1,1 @@
+# This file makes 'manifest' a Python package.

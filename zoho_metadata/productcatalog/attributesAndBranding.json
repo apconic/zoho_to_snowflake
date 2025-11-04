@@ -1,0 +1,11 @@
+{
+  "_comment": "Handles item attributes, options, branding, and categories.",
+  "submodule": "AttributesAndBranding",
+  "tables": [
+    "Attribute",
+    "Attribute Options",
+    "Brand",
+    "Category",
+    "Manufacturer"
+  ]
+}

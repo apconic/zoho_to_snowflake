@@ -1,0 +1,9 @@
+{
+  "_comment": "Supports tagging, user management, and reporting.",
+  "module": "AdminAndMetadata",
+  "tables": [
+    "Reporting Tags",
+    "Users",
+    "Branch"
+  ]
+}

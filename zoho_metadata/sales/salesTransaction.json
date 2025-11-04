@@ -1,0 +1,12 @@
+{
+  "_comment": "Handles sales orders, invoices, and related payments.",
+  "submodule": "SalesTransactions",
+  "tables": [
+    "Sales Orders",
+    "Sales Order Items",
+    "Sales Order Invoice",
+    "Invoices",
+    "Invoice Items",
+    "Invoice Payments"
+  ]
+}
