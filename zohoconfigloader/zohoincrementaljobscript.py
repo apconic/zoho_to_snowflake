@@ -67,7 +67,8 @@ def get_max_last_modified_time(local_path):
         return None
 
 #Exclusion of tables which will not to be included in incremental load
-excluded_tables = {"Users", "Salesforce_123"}
+#excluded tables is not having last modified date column
+excluded_tables = {"Users", "Reporting Tags"}
 
 
 # Setup structured logging
@@ -89,6 +90,7 @@ logger.info(f"zohoconfigloader spec found? {'Yes' if spec else 'No'}")
 # Confirm AnalyticsClient module is importable
 try:
     from AnalyticsClient import AnalyticsClient
+   
     logger.info("AnalyticsClient module loaded successfully.")
 except ModuleNotFoundError as e:
     logger.error(f"Failed to import AnalyticsClient: {e}")
@@ -170,7 +172,7 @@ try:
     #bulk_api = client.get_bulk_instance(ORG_ID, WORKSPACE_ID)
     #view_id_list = config_loader.ensure_viewid_mapping()
     #Read viewId and Table Name from manifest_key
-    #manifest_key ="tempchunk/zoho_2025-11-05/chunk_1.json"
+    #manifest_key ="tempchunk/zoho_2025-11-05/chunk_0.json"
     manifest_key = args["MANIFEST_KEY"]
     logger.info(f"Path for Zoho table and view Id mapping {manifest_key}")
     response = s3_client.get_object(Bucket=s3_bucket, Key=manifest_key)
@@ -195,7 +197,8 @@ try:
         view_name = view_details["viewName"].lower().replace(" ","_")
        
         base_prefix = f"{landing_zone}"
-       
+        #dont run incremental for table is exclude list
+        if table_name in excluded_tables:continue
 # → zohodata/incremental/2025/11/10/invoice_items.csv
 		#search full load file in s3 with table_name 
 		#After searching file load it into pandas dataframe
@@ -235,7 +238,7 @@ try:
             bulk_api.export_bulk_data(job_id, local_file)
             print(f"Async Export completed. File saved as {local_file}")
 
-            today = datetime.now().strftime("%Y%m%d")
+            #today = datetime.now().strftime("%Y%m%d")
             #s3_key = f"{base_prefix}{local_file}"
 
             s3_client.upload_file(local_file, s3_bucket, s3_key)
