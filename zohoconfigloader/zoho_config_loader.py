@@ -18,21 +18,21 @@ from zoneinfo import ZoneInfo  # available in Python 3.9+
 
 class ZohoConfigLoader:
 
-    def __init__(self, config_path="s3://zoho-082264365426/zohoconfig/zoho_config.json",runningfor="Zoho"):
+    def __init__(self, config_path="s3://retail-denmart-zoho-test/zohoconfig/zoho_config.json",runningfor="Zoho"):
         #s3 Client 
         self.s3_client = boto3.client("s3")
         self.config_path = config_path
         self.config = self._load_config()
         self.tbl_mapping = self._load_tbl_config()
         region = self.get(key="region")
-        secret_name = self._load_config()
+        self.secrets = self._load_config()
+        #secret_name = self._load_config()
         #secret_name = self.get(key="secret_manager_name")
-        self.secrets = self._fetch_secrets(secret_name=secret_name, region_name=region)
+        #self.secrets = self._fetch_secrets(secret_name=secret_name, region_name=region)
         #Zoho Analytics Client
-        self.ac_client = AnalyticsClient(client_id=self.secrets["CLIENT_ID"]
-                                    ,client_secret= self.secrets["CLIENT_SECRET"]
-                                    ,refresh_token= self.secrets["REFRESH_TOKEN"])
-
+        # self.ac_client = AnalyticsClient(client_id=self.secrets["client_id"]
+        #                             ,client_secret= self.secrets["client_secret"]
+        #                             ,refresh_token= self.secrets["refresh_token"])
 
     def _fetch_secrets(self, secret_name, region_name):
         """
