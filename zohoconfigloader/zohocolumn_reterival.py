@@ -88,7 +88,7 @@ tables = [
 # Prompt for required inputs
 owner_email = "hitesh@retaildenmart.com".strip()
 workspace_name = "Zoho Finance Retail Denmart"
-access_token = "1000.54d9d78686c60e48e745e9d3dba8cb14.1c197531f0fc6b26dbeb8fc0fb0b45de".strip()
+access_token = "1000.f30f8016a49d9b3627aed9cd097e8864.ee22ab8c6c3dd4023a6ef59a932d8282".strip()
 
 base_url = "https://analyticsapi.zoho.in"
 

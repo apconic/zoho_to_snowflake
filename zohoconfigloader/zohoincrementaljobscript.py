@@ -14,7 +14,6 @@ Created on Thu Oct 16 18:39:47 2025
 import time
 #import boto3
 import json
-from datetime import datetime
 #from zoho_config_loader import ZohoConfigLoader  # ← Import your class
 #AWS Glue Import 
 import logging
@@ -22,18 +21,21 @@ import sys
 from awsglue.utils import getResolvedOptions
 import importlib.util
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timedelta
 
 def build_s3_key_and_filename(base_prefix, table_name):
     """
-    Builds the local filename and full S3 key using the current date.
+    Builds the local filename and full S3 key using IST timezone.
 
     Returns:
         tuple: (local_filename, s3_key)
     """
-    now = datetime.now()
-    local_filename = f"{table_name}.csv"
-    s3_key = f"{base_prefix}/{now.year:04d}/{now.month:02d}/{now.day:02d}/{local_filename}"
+    # Convert UTC to IST
+    now_utc = datetime.utcnow()
+    now_ist = now_utc + timedelta(hours=5, minutes=30)
+
+    local_filename = f"{table_name}.csv".lower()
+    s3_key = f"{base_prefix}/{now_ist.year:04d}/{now_ist.month:02d}/{now_ist.day:02d}/{local_filename}"
     return local_filename, s3_key
 
 def get_max_last_modified_time(local_path):
@@ -68,7 +70,8 @@ def get_max_last_modified_time(local_path):
 
 #Exclusion of tables which will not to be included in incremental load
 #excluded tables is not having last modified date column
-excluded_tables = {"Users", "Reporting Tags"}
+excluded_tables = {"Users", "Item Group","Price List Item"
+                   ,"Reporting Tags","Salesforce Sep25 Accounts","Salesforce Sep25 Products"}
 
 
 # Setup structured logging
@@ -172,7 +175,7 @@ try:
     #bulk_api = client.get_bulk_instance(ORG_ID, WORKSPACE_ID)
     #view_id_list = config_loader.ensure_viewid_mapping()
     #Read viewId and Table Name from manifest_key
-    #manifest_key ="tempchunk/zoho_2025-11-05/chunk_0.json"
+    #manifest_key ="tempchunk/zoho_2025-11-05/chunk_1.json"
     manifest_key = args["MANIFEST_KEY"]
     logger.info(f"Path for Zoho table and view Id mapping {manifest_key}")
     response = s3_client.get_object(Bucket=s3_bucket, Key=manifest_key)
@@ -180,8 +183,7 @@ try:
 
 
     view_id_list = manifest["viewIds"]
-    landing_zone = config_loader.get("zoho_tbl_key") 
-    landing_zone =f"{landing_zone}incremental"
+    landing_zone = config_loader.get("zoho_tbl_key").rstrip("/") + "/incremental"
     logger.info("FIle loading to path {landing_zone}")
     count=0
     #Load timestamp of tablesfrom max_last_modified_times.json
@@ -208,7 +210,7 @@ try:
         viewId_or_sql_query = (f'SELECT * FROM "{table_name}" '
                                                      f'WHERE "Last Modified Time" >= \'{LSMODIFIED_TIME}\'')
         # Start async export per view
-        print(f"Starting bulk export for {view_name} ({view_id})...")
+        print(f"Starting bulk export for {table_name} ({view_id})...")
         #job_id = bulk_api.initiate_bulk_export(view_id, "CSV", config={})
         #job_id = bulk_api.initiate_bulk_export_using_sql(viewId_or_sql_query, "CSV")
         #print(f"Export job started. Job ID: {job_id}")
